@@ -1,0 +1,243 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Campus Clock Design System
+   Premium, enterprise-grade educational platform styling
+   Clean white background with soft blue, muted green, and teal accents
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Core backgrounds */
+    --background: 0 0% 100%;
+    --foreground: 220 20% 15%;
+    
+    /* Cards with subtle warmth */
+    --card: 210 40% 99%;
+    --card-foreground: 220 20% 15%;
+    
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+    
+    /* Primary - Soft Blue */
+    --primary: 215 85% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 215 85% 95%;
+    --primary-dark: 215 85% 45%;
+    
+    /* Secondary */
+    --secondary: 220 15% 96%;
+    --secondary-foreground: 220 20% 25%;
+    
+    /* Muted */
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 10% 50%;
+    
+    /* Accent - Teal for AI highlights */
+    --accent: 175 70% 45%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 175 70% 95%;
+    
+    /* Success - Muted Green */
+    --success: 155 60% 45%;
+    --success-foreground: 0 0% 100%;
+    --success-light: 155 60% 95%;
+    
+    /* Lavender for special highlights */
+    --lavender: 250 70% 65%;
+    --lavender-light: 250 70% 95%;
+    
+    /* Destructive */
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Border */
+    --border: 220 20% 92%;
+    --input: 220 20% 92%;
+    --ring: 215 85% 55%;
+    
+    --radius: 0.75rem;
+    
+    /* Sidebar */
+    --sidebar-background: 220 15% 98%;
+    --sidebar-foreground: 220 20% 25%;
+    --sidebar-primary: 215 85% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 94%;
+    --sidebar-accent-foreground: 220 20% 25%;
+    --sidebar-border: 220 20% 92%;
+    --sidebar-ring: 215 85% 55%;
+    
+    /* Custom shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(220 20% 15% / 0.03);
+    --shadow-md: 0 4px 12px -2px hsl(220 20% 15% / 0.06), 0 2px 4px -2px hsl(220 20% 15% / 0.04);
+    --shadow-lg: 0 10px 30px -5px hsl(220 20% 15% / 0.08), 0 4px 10px -5px hsl(220 20% 15% / 0.04);
+    --shadow-xl: 0 20px 50px -10px hsl(220 20% 15% / 0.12);
+    --shadow-glow: 0 0 40px -10px hsl(215 85% 55% / 0.25);
+  }
+
+  .dark {
+    --background: 220 20% 8%;
+    --foreground: 220 15% 95%;
+    
+    --card: 220 20% 10%;
+    --card-foreground: 220 15% 95%;
+    
+    --popover: 220 20% 10%;
+    --popover-foreground: 220 15% 95%;
+    
+    --primary: 215 85% 60%;
+    --primary-foreground: 220 20% 8%;
+    --primary-light: 215 85% 20%;
+    --primary-dark: 215 85% 70%;
+    
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 220 15% 90%;
+    
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 10% 60%;
+    
+    --accent: 175 70% 50%;
+    --accent-foreground: 220 20% 8%;
+    --accent-light: 175 70% 15%;
+    
+    --success: 155 60% 50%;
+    --success-foreground: 220 20% 8%;
+    --success-light: 155 60% 15%;
+    
+    --lavender: 250 70% 70%;
+    --lavender-light: 250 70% 15%;
+    
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 220 15% 95%;
+    
+    --border: 220 15% 18%;
+    --input: 220 15% 18%;
+    --ring: 215 85% 60%;
+    
+    --sidebar-background: 220 20% 10%;
+    --sidebar-foreground: 220 15% 90%;
+    --sidebar-primary: 215 85% 60%;
+    --sidebar-primary-foreground: 220 20% 8%;
+    --sidebar-accent: 220 15% 15%;
+    --sidebar-accent-foreground: 220 15% 90%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 215 85% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* Premium card styles */
+  .card-premium {
+    @apply bg-card rounded-2xl border border-border/50;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-premium:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+  
+  /* Glass effect */
+  .glass {
+    @apply backdrop-blur-xl bg-white/80 border border-white/20;
+  }
+  
+  /* Gradient text */
+  .gradient-text-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+  
+  .gradient-text-accent {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-success;
+  }
+  
+  /* Section spacing */
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+  
+  /* Container */
+  .container-tight {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-wide {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Icon container */
+  .icon-container {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center;
+  }
+  
+  .icon-container-primary {
+    @apply icon-container bg-primary-light text-primary;
+  }
+  
+  .icon-container-accent {
+    @apply icon-container bg-accent-light text-accent;
+  }
+  
+  .icon-container-success {
+    @apply icon-container bg-success-light text-success;
+  }
+  
+  .icon-container-lavender {
+    @apply icon-container bg-lavender-light text-lavender;
+  }
+}
+
+@layer utilities {
+  /* Animation delays */
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+  
+  /* Custom background colors */
+  .bg-primary-light { background-color: hsl(var(--primary-light)); }
+  .bg-accent-light { background-color: hsl(var(--accent-light)); }
+  .bg-success-light { background-color: hsl(var(--success-light)); }
+  .bg-lavender-light { background-color: hsl(var(--lavender-light)); }
+  
+  /* Custom text colors */
+  .text-primary { color: hsl(var(--primary)); }
+  .text-accent { color: hsl(var(--accent)); }
+  .text-success { color: hsl(var(--success)); }
+  .text-lavender { color: hsl(var(--lavender)); }
+  
+  /* Subtle background patterns */
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, hsl(var(--border) / 0.3) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.3) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  
+  .bg-dot-pattern {
+    background-image: radial-gradient(circle, hsl(var(--border)) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+}
